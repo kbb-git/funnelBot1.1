@@ -1,0 +1,592 @@
+:root {
+    --primary-color: #0A2540; /* Deep Navy - Checkout.com Primary */
+    --secondary-color: #0373CE; /* Bright Blue - Checkout.com Secondary */
+    --accent-color: #00C2A0; /* Teal - Checkout.com Accent */
+    --text-color: #333333; /* Slightly lighter dark gray */
+    --text-light: #666666; /* Slightly lighter secondary gray */
+    --background-color: #F8F9FA; /* Very light gray */
+    --container-bg: #FFFFFF;
+    --border-color: #E0E0E0; /* Slightly softer border */
+    --input-border-color: #CED4DA; /* Standard input border */
+    --input-focus-border: var(--secondary-color);
+    --shadow-color: rgba(0, 0, 0, 0.06); /* Softer shadow */
+    --error-color: #D9534F; /* Bootstrap-like danger color */
+    --success-color: #5CB85C; /* Bootstrap-like success color */
+    --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --border-radius-sm: 4px;
+    --border-radius-md: 6px; /* Slightly smaller radius */
+    --border-radius-lg: 10px; /* Slightly smaller radius */
+    --transition-speed: 0.2s;
+}
+
+/* Adding Google Font Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.65; /* Slightly increased line-height */
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 850px; /* Slightly wider container */
+    margin: 50px auto; /* Increased top/bottom margin */
+    padding: 40px 50px; /* Increased padding */
+    background-color: var(--container-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px var(--shadow-color); /* Adjusted shadow */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 45px; /* Increased margin */
+    padding-bottom: 30px; /* Increased padding */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    height: 40px; /* Slightly reduced height */
+    margin-right: 15px; /* Increased margin */
+    object-fit: contain;
+    max-width: 180px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px; /* Increased margin */
+    font-weight: var(--font-weight-semibold); /* Slightly less bold than 700 for refinement */
+    font-size: 2.4em; /* Slightly larger H1 */
+    letter-spacing: -0.5px; /* Add slight negative letter spacing for refinement */
+}
+
+header p {
+    font-size: 1.1em;
+    color: var(--text-light);
+    max-width: 650px; /* Wider text block */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-area {
+    margin-bottom: 35px; /* Increased margin */
+}
+
+/* Unified form group styling */
+.form-group {
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em; /* Slightly smaller label */
+    color: var(--text-light); /* Lighter color for label */
+    font-weight: var(--font-weight-medium);
+}
+
+/* Removing speaker-inputs specific style for unification */
+/* .speaker-inputs { ... } */
+/* .speaker-inputs div { ... } */
+/* .speaker-inputs label { ... } */
+
+.input-area textarea,
+.input-area input[type="text"] { /* Adjusted selector */
+    width: 100%;
+    padding: 14px 16px; /* Consistent padding */
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius-md);
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: #fff; /* Ensure white background */
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    line-height: 1.5; /* Adjust line-height for inputs */
+}
+
+.input-area textarea::placeholder,
+.input-area input[type="text"]::placeholder { /* Style placeholders */
+    color: #aab0b6; /* Lighter placeholder text */
+    opacity: 1; /* Override browser defaults */
+}
+
+.input-area textarea {
+    min-height: 180px; /* Slightly reduced height */
+    /* margin-bottom: 0; Removed, handled by form-group */
+    resize: vertical;
+}
+
+.input-area textarea:focus,
+.input-area input[type="text"]:focus { /* Adjusted selector */
+    outline: none;
+    border-color: var(--input-focus-border);
+    /* Softer, slightly larger focus ring */
+    box-shadow: 0 0 0 4px rgba(3, 115, 206, 0.15);
+}
+
+
+.input-area button {
+    display: inline-block; /* Changed from block */
+    width: auto; /* Allow button to size to content + padding */
+    min-width: 180px; /* Ensure minimum width */
+    padding: 14px 30px; /* Adjust padding */
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1.05em; /* Adjusted size */
+    font-weight: var(--font-weight-medium); /* Medium weight */
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow 0.1s ease; /* Added shadow transition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+    margin-top: 10px; /* Add some margin above button */
+}
+
+/* Center the button within its container if needed - adjust parent div if necessary */
+.input-area > div:has(> #analyzeButton) { /* Target potential container */
+    text-align: center; /* Center the button if wrapped */
+}
+.input-area > #analyzeButton { /* Target button directly under input-area */
+    display: block; /* Keep block if direct child */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-area button:hover {
+    background-color: #005BAA;
+    transform: translateY(-2px); /* Slightly more lift */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.input-area button:active {
+    transform: translateY(0px);
+    background-color: #004C8C; /* Darker active state */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reduced shadow when active */
+}
+
+/* Add disabled state for the button */
+.input-area button:disabled {
+    background-color: #a0c7e4; /* Lighter blue */
+    color: #e9f1f7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.wait-notice {
+    text-align: center;
+    color: var(--text-light);
+    margin-top: 20px; /* Increased margin */
+    font-size: 0.95em; /* Slightly larger */
+}
+
+/* Loading indicator styling */
+#loadingIndicator {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0; /* Increased margin */
+    background-color: #F8F9FA;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color); /* Add subtle border */
+    /* Add a subtle background pulse */
+    animation: subtlePulse 2.5s infinite ease-in-out; 
+}
+
+.loading-spinner {
+    /* Smoother border animation effect */
+    border: 4px solid rgba(3, 115, 206, 0.15); /* Slightly thinner border */
+    border-left-color: var(--secondary-color); /* Use left instead of top for a different feel */
+    border-radius: 50%;
+    width: 50px; /* Slightly smaller */
+    height: 50px;
+    animation: spin 1.2s linear infinite; /* Slightly slower spin */
+    margin-bottom: 25px; /* Increased margin */
+}
+
+/* Removed #loadingIndicator .pulse specific styling, use .pulse class directly */
+/* #loadingIndicator .pulse { ... } */
+
+#loadingIndicator p {
+    font-size: 1em; /* Standardized size */
+    margin-top: 8px;
+    max-width: 80%; /* Constrain text width */
+}
+/* Remove the .pulse class from the HTML element for this text if it exists */
+#loadingIndicator p.pulse {
+    animation: none; /* Remove direct pulse from text if needed */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add subtle background pulse for loading indicator */
+@keyframes subtlePulse {
+    0% { background-color: #F8F9FA; }
+    50% { background-color: #FDFEFE; } /* Slightly lighter */
+    100% { background-color: #F8F9FA; }
+}
+
+/* Carousel styling */
+.education-carousel {
+    margin-top: 25px; /* Adjusted margin */
+    max-width: 600px; /* Wider carousel */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--border-radius-md);
+    background-color: var(--container-bg);
+    box-shadow: 0 6px 18px var(--shadow-color); /* Adjusted shadow */
+    padding: 25px 30px; /* Increased padding */
+    border: 1px solid var(--border-color); /* Add border */
+}
+
+.carousel-item {
+    text-align: left;
+    padding: 0;
+    /* Keep opacity/height/overflow for animation */
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    /* Define animations directly */
+    position: absolute; /* Needed for slide transitions */
+    width: calc(100% - 60px); /* Account for padding */
+    left: 30px; /* Account for padding */
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    height: auto;
+    overflow: visible;
+    position: relative; /* Take up space */
+    left: 0;
+    /* Keep animation triggers for JS */
+}
+
+/* Simpler slide transitions (handled by JS adding/removing classes) */
+.carousel-item.slide-in-right { animation: slideInRight 0.6s forwards ease-out; }
+.carousel-item.slide-out-left { animation: slideOutLeft 0.6s forwards ease-in; }
+.carousel-item.slide-in-left { animation: slideInLeft 0.6s forwards ease-out; }
+.carousel-item.slide-out-right { animation: slideOutRight 0.6s forwards ease-in; }
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutLeft {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+
+.carousel-item h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-weight: var(--font-weight-semibold);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 12px; /* Increased padding */
+    margin-bottom: 15px; /* Increased margin */
+    font-size: 1.3em; /* Adjusted size */
+}
+
+.carousel-item p {
+    color: var(--text-light);
+    line-height: 1.7; /* Further increased line height */
+    margin-bottom: 0;
+    font-size: 1em; /* Standardized size */
+}
+
+/* Results area styling */
+.results-area {
+    margin-top: 40px;
+    padding: 0; /* Remove padding, handle inside */
+    background-color: transparent; /* Remove background */
+    border: none; /* Remove border */
+    border-radius: 0; /* Remove radius */
+    box-shadow: none; /* Remove shadow */
+}
+
+.results-area h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px; /* Increased margin */
+    border-bottom: 1px solid var(--border-color); /* Use standard border */
+    font-weight: var(--font-weight-semibold);
+    text-align: left; /* Align left */
+    font-size: 1.9em; /* Adjusted size */
+}
+
+/* Styles for the new results <div> instead of <pre> */
+#analysisOutput {
+    background-color: #FFFFFF; /* White background for results */
+    padding: 30px 35px; /* Padding */
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color); /* Add shadow */
+    font-family: var(--font-family); /* Use main font */
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* Specific styles for elements within #analysisOutput (to be added via JS) */
+#analysisOutput .score-header {
+    font-size: 1.3em;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+#analysisOutput .score-header .score-value {
+    font-weight: var(--font-weight-bold);
+    color: var(--secondary-color);
+    font-size: 1.1em; /* Relative to parent */
+}
+#analysisOutput .score-header .interpretation {
+    font-weight: var(--font-weight-medium);
+    color: var(--secondary-color);
+}
+
+#analysisOutput .category-breakdown,
+#analysisOutput .funnel-summaries,
+#analysisOutput .aggregate-lists,
+#analysisOutput .coaching-tips-section {
+    margin-top: 30px;
+}
+
+#analysisOutput h3.section-title { /* Title for Breakdown, Summaries, Lists, Tips */
+    font-size: 1.4em;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#analysisOutput .category-breakdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#analysisOutput .category-breakdown li {
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+#analysisOutput .category-breakdown .category-score {
+    font-weight: var(--font-weight-medium);
+    color: var(--secondary-color);
+    display: inline-block; /* Align scores */
+    min-width: 50px; /* Ensure space for score */
+    text-align: right;
+    margin-left: 10px;
+}
+
+#analysisOutput .funnel-summary {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--border-color); /* Dashed separator */
+}
+#analysisOutput .funnel-summary:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#analysisOutput .funnel-title { /* E.g., ### F1 (Points earned...) */
+    font-size: 1.2em;
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+#analysisOutput .funnel-title span { /* Points earned part */
+    font-size: 0.8em;
+    font-weight: var(--font-weight-regular);
+    color: var(--text-light);
+    margin-left: 5px;
+}
+
+#analysisOutput ul.detail-list,
+#analysisOutput ol.detail-list { /* Used for questions, pains, etc. */
+    list-style-position: outside;
+    padding-left: 25px; /* Indentation */
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+#analysisOutput ul.detail-list li,
+#analysisOutput ol.detail-list li {
+    margin-bottom: 8px;
+    color: var(--text-light); /* Lighter text for list items */
+}
+#analysisOutput ul.detail-list li strong, /* E.g., Question Type */
+#analysisOutput ol.detail-list li strong {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-medium);
+}
+
+#analysisOutput .coaching-tips-section p {
+    margin-bottom: 1em;
+    line-height: 1.75; /* Slightly more line height for tips */
+}
+#analysisOutput .coaching-tips-section code { /* Style for transcript quotes in tips */
+    background-color: #eef1f3;
+    padding: 2px 6px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9em;
+    color: var(--primary-color);
+    border: 1px solid #dce3e8;
+}
+#analysisOutput .missed-opportunities li {
+    color: #B94A48; /* Indicate missed opportunity */
+}
+#analysisOutput .missed-opportunities li::marker {
+    color: #B94A48;
+}
+
+
+/* Remove old pre formatting */
+/* .results-area pre { ... } */
+
+/* Pulse animation */
+.pulse {
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+/* Error message styling */
+.error-message {
+    margin-top: 25px; /* Increased margin */
+    padding: 18px 22px; /* Adjusted padding */
+    background-color: #f8d7da; /* Bootstrap danger bg */
+    color: #721c24; /* Bootstrap danger text */
+    border: 1px solid #f5c6cb; /* Bootstrap danger border */
+    border-left: 5px solid var(--error-color); /* Accent border */
+    border-radius: var(--border-radius-md);
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(217, 83, 79, 0.1); /* Adjusted shadow */
+}
+
+.error-message p {
+    margin: 0;
+    font-size: 1em;
+    font-weight: var(--font-weight-medium);
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px; /* Increased spacing */
+    padding-top: 30px; /* Increased padding */
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 30px auto;
+        padding: 25px 30px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    .input-area textarea {
+        min-height: 150px;
+    }
+    .results-area h2 {
+        font-size: 1.6em;
+    }
+    #analysisOutput {
+        padding: 20px 25px;
+    }
+    footer {
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: var(--border-radius-md); /* Smaller radius on mobile */
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    .logo {
+        height: 35px;
+        margin-right: 10px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .input-area button {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+    .results-area h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    #analysisOutput {
+        padding: 15px 20px;
+    }
+    #analysisOutput h3.section-title {
+        font-size: 1.2em;
+    }
+    footer {
+        margin-top: 30px;
+        padding-top: 15px;
+    }
+} 

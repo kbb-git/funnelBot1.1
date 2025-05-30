@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunnelBot - Sales Call Analysis | Checkout.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='img/checkout_logo.jpeg') }}" alt="Checkout.com Logo" class="logo">
+                <h1>FunnelBot</h1>
+            </div>
+            <p>Paste your sales call transcript below to analyze funneling effectiveness and gain actionable coaching insights.</p>
+        </header>
+
+        <main>
+            <div class="input-area">
+                <div class="form-group speaker-inputs">
+                    <div>
+                        <label for="salesRepNames">Sales Rep(s) Name(s):</label>
+                        <input type="text" id="salesRepNames" placeholder="E.g., John Doe, Jane Smith" aria-label="Sales Rep Names">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="transcriptInput" class="sr-only">Transcript:</label>
+                    <textarea id="transcriptInput" placeholder="Paste call transcript here..." aria-label="Transcript Input"></textarea>
+                </div>
+                <button id="analyzeButton">Analyze Transcript</button>
+                <p class="wait-notice">Analysis can take up to 5 minutes. Please be patient.</p>
+            </div>
+
+            <div id="loadingIndicator" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p class="pulse">Analyzing your transcript with Gemini AI...</p>
+                <p>This may take up to 5 minutes. While you wait, learn about funneling:</p>
+                
+                <div class="education-carousel">
+                    <div class="carousel-item active">
+                        <h3>What is Funneling?</h3>
+                        <p>Funneling is a questioning technique that helps sales reps discover customer needs by moving from broad to specific questions. It follows a structure of Thinking, Explore, Narrow/Confirm, and Sweeper questions.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Thinking Questions</h3>
+                        <p>Open-ended questions that trigger a new topic and provoke reflection. These questions usually start with "How" or "Why" and help establish the conversation direction.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Explore Questions</h3>
+                        <p>These questions broaden understanding of a topic by asking who, what, when, where, why, or how. They help gather more information about the customer's situation.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Narrow/Confirm Questions</h3>
+                        <p>These questions drill into specifics and confirm understanding. They typically use "if/do/is/are" formats and help clarify details about the customer's needs.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Sweeper Questions</h3>
+                        <p>Questions that surface anything missed or summarize the problem/next steps. Examples include "Is there anything else we should cover?" or summary statements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-area" id="resultsArea" style="display: none;">
+                <h2>Analysis Results</h2>
+                <div id="analysisOutput"></div>
+            </div>
+            <div id="errorOutput" class="error-message" style="display: none;">
+                <p></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Checkout.com | FunnelBot. For internal coaching purposes.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
